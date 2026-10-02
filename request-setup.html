@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Setup Server</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background-color: #050507;
+    }
+
+    .card-purple {
+      background-color: #13111f;
+      border: 1px solid #2a2342;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .card-purple:hover {
+      border-color: #7c3aed;
+      box-shadow: 0 0 30px rgba(196, 160, 255, 0.2), 0 0 60px rgba(124, 58, 237, 0.12);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="bg-[#050507] text-white min-h-screen p-4 md:p-10 flex items-center justify-center">
+
+  <div class="w-full max-w-4xl mx-auto">
+
+    <!-- Judul Atas dengan Bookmark Merah dan Garis Tipis -->
+    <div class="flex items-center gap-2.5 mb-3.5">
+      <!-- Icon Bookmark Merah -->
+      <svg class="w-4 h-4 text-red-500 fill-current shrink-0" viewBox="0 0 24 24">
+        <path d="M5 3c-.55 0-1 .45-1 1v16.59c0 .89 1.08 1.34 1.71.71L12 15.41l6.29 5.89c.63.63 1.71.18 1.71-.71V4c0-.55-.45-1-1-1H5z" />
+      </svg>
+      <span class="text-white font-bold text-xs tracking-wide shrink-0">Request Setup Server</span>
+      <!-- Garis Tipis Samping -->
+      <div class="h-[1px] flex-1 bg-[#2a2342]"></div>
+    </div>
+
+    <!-- Card Panjang Full Width -->
+    <div class="card-purple p-5 md:p-6 cursor-pointer">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+
+        <!-- Kiri: Icon + Judul + Deskripsi -->
+        <div class="space-y-1.5">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🛠️</span>
+            <h3 class="text-white font-bold text-base md:text-lg">Custom Server Setup</h3>
+          </div>
+          <p class="text-gray-400 text-xs md:text-sm leading-relaxed max-w-2xl">
+            Request setup sesuai kebutuhan dan konsep server kamu. Harga menyesuaikan fitur dan tingkat pengerjaan.
+          </p>
+        </div>
+
+        <!-- Kanan: Harga Ungu Muda Bold -->
+        <div class="text-left sm:text-right shrink-0">
+          <span class="text-[#c4a0ff] font-bold text-xl md:text-2xl">
+            Rp5.000-120.000
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

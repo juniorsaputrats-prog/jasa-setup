@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fim Saturn — Setup Server Minecraft Profesional</title>
+  <meta name="description" content="Jasa setup server Minecraft profesional. Plugin lengkap, optimasi no lag, garansi 7 hari. Mulai dari Rp15.000!" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mc: {
+              green: '#00F0FF',
+              cyan: '#00F0FF',
+              blue: '#0099FF',
+              dark: '#070913',
+              card: '#0D1222',
+              border: 'rgba(0, 240, 255, 0.12)',
+              gray: '#94A3B8',
+              gold: '#F59E0B',
+            }
+          },
+          fontFamily: {
+            space: ['Space Grotesk', 'sans-serif'],
+            poppins: ['Poppins', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="grid-pattern">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="nav-blur fixed top-0 w-full z-50 px-4 md:px-8 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 bg-gradient-to-br from-[#00F0FF] to-[#0077FE] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.4)] group-hover:scale-105 transition-transform">
+          <span class="text-[#050813] font-poppins font-extrabold text-sm">FS</span>
+        </div>
+        <span class="font-poppins font-bold text-xl text-white tracking-tight">FIM <span class="text-neon-gradient">SATURN</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#paket" class="text-slate-400 hover:text-[#00F0FF] transition-colors">Paket</a>
+        <a href="#kenapa" class="text-slate-400 hover:text-[#00F0FF] transition-colors">Keunggulan</a>
+        <a href="#order" class="text-slate-400 hover:text-[#00F0FF] transition-colors">Cara Order</a>
+        <a href="#faq" class="text-slate-400 hover:text-[#00F0FF] transition-colors">FAQ</a>
+        <a href="https://wa.me/6283119678265?text=Halo%20kak%2C%20mau%20tanya%20tentang%20jasa%20setup%20server"
+           class="btn-mc px-5 py-2 rounded-lg text-sm font-bold">Chat Kami</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobileBtn" class="md:hidden text-white" onclick="toggleMobile()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== MOBILE MENU ==================== -->
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-64 h-full z-[60] p-6 flex flex-col gap-6">
+    <button onclick="toggleMobile()" class="self-end text-white mb-4">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <a href="#paket" onclick="toggleMobile()" class="text-slate-300 hover:text-[#00F0FF] transition-colors font-medium">Paket</a>
+    <a href="#kenapa" onclick="toggleMobile()" class="text-slate-300 hover:text-[#00F0FF] transition-colors font-medium">Keunggulan</a>
+    <a href="#order" onclick="toggleMobile()" class="text-slate-300 hover:text-[#00F0FF] transition-colors font-medium">Cara Order</a>
+    <a href="#faq" onclick="toggleMobile()" class="text-slate-300 hover:text-[#00F0FF] transition-colors font-medium">FAQ</a>
+    <a href="https://wa.me/6283119678265?text=Halo%20kak%2C%20mau%20tanya%20tentang%20jasa%20setup%20server"
+       class="btn-mc px-5 py-3 rounded-lg text-sm text-center mt-4">Chat Kami</a>
+  </div>
+  <div id="mobileOverlay" class="fixed inset-0 bg-black/60 z-[55] hidden" onclick="toggleMobile()"></div>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="hero-bg min-h-screen flex items-center justify-center px-4 pt-20 pb-16 relative">
+    <!-- Floating Decorative Blocks -->
+    <div class="floating-block top-[15%] left-[8%] w-16 h-16 rounded-lg" style="animation-delay: 0s;"></div>
+    <div class="floating-block top-[25%] right-[10%] w-12 h-12 rounded-md" style="animation-delay: 1s;"></div>
+    <div class="floating-block bottom-[20%] left-[15%] w-10 h-10 rounded-lg" style="animation-delay: 2s;"></div>
+    <div class="floating-block top-[60%] right-[5%] w-14 h-14 rounded-md" style="animation-delay: 3s;"></div>
+    <div class="floating-block top-[10%] left-[50%] w-8 h-8 rounded-md" style="animation-delay: 1.5s;"></div>
+    <div class="floating-block bottom-[10%] right-[30%] w-10 h-10 rounded-md" style="animation-delay: 2.5s;"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <!-- Trust Badge -->
+      <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8 border border-cyan-500/25 shadow-[0_0_20px_rgba(0,240,255,0.1)]">
+        <span class="w-2 h-2 bg-[#00F0FF] rounded-full animate-pulse shadow-[0_0_8px_#00F0FF]"></span>
+        <span class="text-xs md:text-sm text-slate-300 font-mono font-medium">Trusted by 10+ Server Owners</span>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="font-poppins font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
+        Setup Server Minecraft<br />
+        <span class="text-neon-gradient glow-text">Profesional,</span><br />
+        Tinggal Jalan!
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Gak perlu pusing config plugin. Kami setup <span class="text-white font-semibold">semua sampai jadi</span>
+        — dari plugin, permission, scoreboard, hingga optimasi performa.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://wa.me/6283119678265?text=Halo%20kak%2C%20mau%20order%20jasa%20setup%20server%20Minecraft"
+           class="btn-mc px-8 py-4 rounded-xl text-base md:text-lg font-bold inline-flex items-center gap-3">
+          <!-- WhatsApp Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Pesan Sekarang
+        </a>
+        <a href="#paket" class="btn-outline px-8 py-4 rounded-xl text-base md:text-lg inline-flex items-center gap-2">
+          Lihat Paket
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex flex-wrap justify-center gap-8 md:gap-16 mt-16">
+        <div class="text-center">
+          <p class="text-neon-gradient font-poppins font-extrabold text-3xl md:text-4xl">10+</p>
+          <p class="text-slate-400 text-sm mt-1">Server Tersetup</p>
+        </div>
+        <div class="text-center">
+          <p class="text-neon-gradient font-poppins font-extrabold text-3xl md:text-4xl">⭐ 4.9</p>
+          <p class="text-slate-400 text-sm mt-1">Rating</p>
+        </div>
+        <div class="text-center">
+          <p class="text-neon-gradient font-poppins font-extrabold text-3xl md:text-4xl">24/7</p>
+          <p class="text-slate-400 text-sm mt-1">Support</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAKET HARGA ==================== -->
+  <section id="paket" class="py-20 md:py-28 px-4">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16 fade-up">
+        <span class="text-neon-gradient text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full glass border border-cyan-500/20 inline-block mb-3">Pricing</span>
+        <h2 class="font-poppins font-extrabold text-3xl md:text-5xl text-white mt-1 mb-4">Pilih Paket Kamu</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">Semua paket sudah termasuk instalasi, konfigurasi, dan garansi. Tinggal pilih, bayar, server jadi!</p>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
+
+        <!-- ===== CARD 1: SMP Economy Basic ===== -->
+        <div class="glass-card rounded-2xl p-7 md:p-8 fade-up relative overflow-hidden">
+          <div class="inline-flex items-center gap-1.5 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-bold px-3.5 py-1.5 rounded-full mb-6 tracking-wide">
+            🔥 PALING LAKU
+          </div>
+          <h3 class="font-poppins font-bold text-xl text-white mb-2">SMP Economy Basic</h3>
+          <p class="text-slate-400 text-sm mb-6">Paket dasar untuk server SMP ekonomi yang solid</p>
+
+          <!-- Price -->
+          <div class="mb-8">
+            <span class="text-slate-500 text-lg price-strike font-bold">Rp25.000</span>
+            <div class="flex items-baseline gap-1 mt-1">
+              <span class="font-poppins font-extrabold text-4xl text-white">Rp15.000</span>
+              <span class="text-slate-400 text-sm">/setup</span>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <ul class="space-y-3.5 mb-8">
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Plugin dasar lengkap
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              /shop
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              /ah (Auction House)
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Rank 1-4
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Voice Chat Proximity
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Support Crack / Offline
+            </li>
+          </ul>
+
+          <a href="https://wa.me/6283119678265?text=Halo%20kak%2C%20mau%20order%20paket%20SMP%20Economy%20Basic%20Rp15.000"
+             class="block w-full btn-outline py-3.5 rounded-xl text-center text-sm font-semibold">
+            Pilih Paket Basic
+          </a>
+        </div>
+
+        <!-- ===== CARD 2: Donut SMP (BEST SELLER) ===== -->
+        <div class="glass-card popular-card rounded-2xl p-7 md:p-8 fade-up relative overflow-hidden md:-mt-4 md:mb-0">
+          <!-- Top Glow Accent Line -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#00F0FF] via-sky-300 to-[#00F0FF] rounded-t-2xl"></div>
+
+          <div class="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-full mb-6 tracking-wide bg-amber-500/15 text-amber-400 border border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+            ⭐ BEST SELLER
+          </div>
+          <h3 class="font-poppins font-bold text-xl text-white mb-2">Donut SMP Setup</h3>
+          <p class="text-slate-400 text-sm mb-6">Paket terlengkap dengan semua fitur Donut SMP</p>
+
+          <!-- Price -->
+          <div class="mb-8">
+            <span class="text-slate-500 text-lg price-strike font-bold">Rp100.000</span>
+            <div class="flex items-baseline gap-1 mt-1">
+              <span class="font-poppins font-extrabold text-4xl text-neon-gradient glow-text">Rp60.000</span>
+              <span class="text-slate-400 text-sm">/setup</span>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <ul class="space-y-3.5 mb-8">
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Plugin Lengkap Donut SMP
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Support JAVA & BEDROCK (Geyser)
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              /shop, /ah, /order, /gacha, /birdflip
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Custom Join & Leave Message
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Custom Death & Kill Message
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Custom Scoreboard & TAB
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Leaderboard System
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Vulcan AntiCheat Premium
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Rank 1-7
+            </li>
+            <li class="flex items-start gap-3 text-sm text-[#00F0FF] font-semibold">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              And many more Donut fitur!
+            </li>
+          </ul>
+
+          <a href="https://wa.me/6283119678265?text=Halo%20kak%2C%20mau%20order%20paket%20Donut%20SMP%20Setup%20Rp60.000"
+             class="block w-full btn-mc py-3.5 rounded-xl text-center text-sm font-bold glow-blue tracking-wide">
+            ⚡ Pilih Donut SMP
+          </a>
+        </div>
+
+        <!-- ===== CARD 3: HC Complete++ ===== -->
+        <div class="glass-card rounded-2xl p-7 md:p-8 fade-up relative overflow-hidden">
+          <div class="inline-flex items-center gap-1.5 bg-rose-500/15 text-rose-400 text-xs font-bold px-3.5 py-1.5 rounded-full mb-6 border border-rose-500/25 tracking-wide">
+            💀 HARDCORE
+          </div>
+          <h3 class="font-poppins font-bold text-xl text-white mb-2">HC Complete++</h3>
+          <p class="text-slate-400 text-sm mb-6">Server Hardcore lengkap dengan fitur death ban</p>
+
+          <!-- Price -->
+          <div class="mb-8">
+            <span class="text-slate-500 text-lg price-strike font-bold">Rp50.000</span>
+            <div class="flex items-baseline gap-1 mt-1">
+              <span class="font-poppins font-extrabold text-4xl text-white">Rp30.000</span>
+              <span class="text-slate-400 text-sm">/setup</span>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <ul class="space-y-3.5 mb-8">
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Plugin Lengkap Hardcore
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Custom TAB / Scoreboard
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Custom Death & Kill
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Custom Join & Leave
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Rank 1-5
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Security Anti Hack
+            </li>
+            <li class="flex items-start gap-3 text-sm text-slate-300">
+              <svg class="w-5 h-5 text-[#00F0FF] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              Custom Death Ban
+            </li>
+          </ul>
+
+          <a href="https://wa.me/6283119678265?text=Halo%20kak%2C%20mau%20order%20paket%20HC%20Complete%2B%2B%20Rp30.000"
+             class="block w-full btn-outline py-3.5 rounded-xl text-center text-sm font-semibold">
+            Pilih Paket HC
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== KENAPA KAMI ==================== -->
+  <section id="kenapa" class="py-20 md:py-28 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-neon-gradient text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full glass border border-cyan-500/20 inline-block mb-3">Why Us</span>
+        <h2 class="font-poppins font-extrabold text-3xl md:text-5xl text-white mt-1 mb-4">Kenapa Pilih Kami?</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">Pengalaman, kecepatan, dan support terbaik untuk server Minecraft kamu.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Setup Cepat -->
+        <div class="glass-card rounded-2xl p-7 text-center fade-up">
+          <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/15 to-blue-500/10 border border-cyan-500/25 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#00F0FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="font-poppins font-bold text-white text-lg mb-2">Setup Cepat</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">1 Jam server kamu langsung jadi dan siap dimainkan. No ribet.</p>
+        </div>
+
+        <!-- Garansi 7 Hari -->
+        <div class="glass-card rounded-2xl p-7 text-center fade-up">
+          <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/15 to-blue-500/10 border border-cyan-500/25 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#00F0FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="font-poppins font-bold text-white text-lg mb-2">Garansi 7 Hari</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Ada masalah setelah setup? Kami perbaiki gratis selama 7 hari.</p>
+        </div>
+
+        <!-- Support 24/7 -->
+        <div class="glass-card rounded-2xl p-7 text-center fade-up">
+          <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/15 to-blue-500/10 border border-cyan-500/25 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#00F0FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+            </svg>
+          </div>
+          <h3 class="font-poppins font-bold text-white text-lg mb-2">Support 24/7</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Tim kami standby kapanpun kamu butuh bantuan. Respon cepat via WhatsApp.</p>
+        </div>
+
+        <!-- Optimasi No Lag -->
+        <div class="glass-card rounded-2xl p-7 text-center fade-up">
+          <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/15 to-blue-500/10 border border-cyan-500/25 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(0,240,255,0.15)]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-[#00F0FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="font-poppins font-bold text-white text-lg mb-2">Optimasi No Lag</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">File dan plugin dioptimasi agar server lancar tanpa lag, bahkan di spek rendah.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CARA ORDER ==================== -->
+  <section id="order" class="py-20 md:py-28 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-neon-gradient text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full glass border border-cyan-500/20 inline-block mb-3">How to Order</span>
+        <h2 class="font-poppins font-extrabold text-3xl md:text-5xl text-white mt-1 mb-4">Cara Order</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">Cuma 4 langkah simpel, server Minecraft kamu langsung jadi!</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-up">
+        <div class="glass-card rounded-2xl p-7 text-center">
+          <div class="w-12 h-12 bg-gradient-to-br from-[#00F0FF] to-[#0077FE] text-[#070913] font-poppins font-extrabold text-xl rounded-xl flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(0,240,255,0.35)]">1</div>
+          <h3 class="font-poppins font-bold text-white mb-2">Pilih Paket</h3>
+          <p class="text-slate-400 text-sm">Cek paket yang sesuai kebutuhan server kamu.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-7 text-center">
+          <div class="w-12 h-12 bg-gradient-to-br from-[#00F0FF] to-[#0077FE] text-[#070913] font-poppins font-extrabold text-xl rounded-xl flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(0,240,255,0.35)]">2</div>
+          <h3 class="font-poppins font-bold text-white mb-2">Chat WhatsApp</h3>
+          <p class="text-slate-400 text-sm">Hubungi kami via WhatsApp untuk konfirmasi order.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-7 text-center">
+          <div class="w-12 h-12 bg-gradient-to-br from-[#00F0FF] to-[#0077FE] text-[#070913] font-poppins font-extrabold text-xl rounded-xl flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(0,240,255,0.35)]">3</div>
+          <h3 class="font-poppins font-bold text-white mb-2">Bayar</h3>
+          <p class="text-slate-400 text-sm">Transfer pembayaran sesuai paket yang dipilih.</p>
+        </div>
+        <div class="glass-card rounded-2xl p-7 text-center">
+          <div class="w-12 h-12 bg-gradient-to-br from-[#00F0FF] to-[#0077FE] text-[#070913] font-poppins font-extrabold text-xl rounded-xl flex items-center justify-center mx-auto mb-5 shadow-[0_0_20px_rgba(0,240,255,0.35)]">4</div>
+          <h3 class="font-poppins font-bold text-white mb-2">Server Jadi! 🎉</h3>
+          <p class="text-slate-400 text-sm">Dalam 1 jam, server kamu siap dimainkan!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONI ==================== -->
+  <section class="py-20 md:py-28 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-neon-gradient text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full glass border border-cyan-500/20 inline-block mb-3">Testimonials</span>
+        <h2 class="font-poppins font-extrabold text-3xl md:text-5xl text-white mt-1 mb-4">Kata Mereka</h2>
+        <p class="text-slate-400 max-w-xl mx-auto">Real review dari pelanggan yang udah pake jasa setup kami.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 fade-up">
+        <!-- Testimoni 1 -->
+        <div class="glass-card rounded-2xl p-7">
+          <div class="flex gap-1 mb-4">
+            <span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span>
+          </div>
+          <p class="text-slate-300 text-sm mb-6 leading-relaxed">"Gila sih, baru 45 menit udah jadi server SMP gw. Plugin lengkap, gak lag, gak ribet. Recommended banget buat yang males config sendiri!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-cyan-500/25 to-blue-500/20 border border-cyan-500/30 rounded-full flex items-center justify-center text-cyan-300 font-bold text-sm shadow-[0_0_15px_rgba(0,240,255,0.2)]">RZ</div>
+            <div>
+              <p class="text-white text-sm font-semibold">RizkyMC_</p>
+              <p class="text-slate-400 text-xs">Owner Server SMP</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimoni 2 -->
+        <div class="glass-card rounded-2xl p-7">
+          <div class="flex gap-1 mb-4">
+            <span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span>
+          </div>
+          <p class="text-slate-300 text-sm mb-6 leading-relaxed">"Paket Donut SMP worth it banget! Fitur lengkap, support Java & Bedrock, anti cheat jalan mulus. Playernya pada betah main. 10/10!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-blue-500/25 to-indigo-500/20 border border-blue-500/30 rounded-full flex items-center justify-center text-blue-300 font-bold text-sm shadow-[0_0_15px_rgba(59,130,246,0.2)]">AX</div>
+            <div>
+              <p class="text-white text-sm font-semibold">AxelGaming</p>
+              <p class="text-slate-400 text-xs">Owner Donut SMP</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimoni 3 -->
+        <div class="glass-card rounded-2xl p-7">
+          <div class="flex gap-1 mb-4">
+            <span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span><span class="star text-lg">★</span>
+          </div>
+          <p class="text-slate-300 text-sm mb-6 leading-relaxed">"Ambil paket HC, server Hardcore langsung ready. Death ban, custom scoreboard, semua perfect. Support-nya ramah dan fast respon!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gradient-to-br from-sky-500/25 to-cyan-500/20 border border-sky-500/30 rounded-full flex items-center justify-center text-sky-300 font-bold text-sm shadow-[0_0_15px_rgba(14,165,233,0.2)]">DN</div>
+            <div>
+              <p class="text-white text-sm font-semibold">DaniHC</p>
+              <p class="text-slate-400 text-xs">Owner HC Server</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section id="faq" class="py-20 md:py-28 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16 fade-up">
+        <span class="text-neon-gradient text-xs font-mono font-bold tracking-widest uppercase px-3 py-1 rounded-full glass border border-cyan-500/20 inline-block mb-3">FAQ</span>
+        <h2 class="font-poppins font-extrabold text-3xl md:text-5xl text-white mt-1 mb-4">Pertanyaan Umum</h2>
+      </div>
+
+      <div class="space-y-4 fade-up">
+        <div class="glass-card rounded-xl overflow-hidden hover:border-cyan-500/30 transition-colors">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left">
+            <span class="text-white font-semibold text-sm md:text-base">Apakah bisa pakai hosting / panel sendiri?</span>
+            <svg class="w-5 h-5 text-[#00F0FF] faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-5 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Bisa banget! Kami bisa setup di panel manapun seperti Pterodactyl, Multicraft, atau VPS. Tinggal kasih akses, kami yang kerjain.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-xl overflow-hidden hover:border-cyan-500/30 transition-colors">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left">
+            <span class="text-white font-semibold text-sm md:text-base">Berapa lama proses setup?</span>
+            <svg class="w-5 h-5 text-[#00F0FF] faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-5 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Rata-rata 30 menit - 1 jam tergantung paket. Untuk paket Donut SMP bisa sampai 1-2 jam karena fitur lebih banyak.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-xl overflow-hidden hover:border-cyan-500/30 transition-colors">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left">
+            <span class="text-white font-semibold text-sm md:text-base">Apakah support versi Crack / Offline?</span>
+            <svg class="w-5 h-5 text-[#00F0FF] faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-5 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Ya, semua paket sudah support mode offline / crack. Player gak perlu akun premium untuk join server kamu.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-xl overflow-hidden hover:border-cyan-500/30 transition-colors">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left">
+            <span class="text-white font-semibold text-sm md:text-base">Bisa request custom plugin?</span>
+            <svg class="w-5 h-5 text-[#00F0FF] faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-5 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Bisa! Chat kami dulu via WhatsApp untuk diskusi kebutuhan custom. Ada biaya tambahan tergantung kompleksitas request.</p>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-xl overflow-hidden hover:border-cyan-500/30 transition-colors">
+          <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left">
+            <span class="text-white font-semibold text-sm md:text-base">Garansi mencakup apa saja?</span>
+            <svg class="w-5 h-5 text-[#00F0FF] faq-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="faq-answer px-5 pb-5">
+            <p class="text-slate-400 text-sm leading-relaxed">Garansi 7 hari mencakup bug fix, error plugin, dan perbaikan konfigurasi. Tidak termasuk kerusakan akibat modifikasi sendiri oleh user.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA SECTION ==================== -->
+  <section class="py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+      <div class="glass-card popular-card rounded-3xl p-10 md:p-16 text-center fade-up relative overflow-hidden border border-cyan-500/30">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#00F0FF] to-transparent"></div>
+        <h2 class="font-poppins font-extrabold text-3xl md:text-4xl text-white mb-4">Siap Bikin Server Impianmu?</h2>
+        <p class="text-slate-400 max-w-lg mx-auto mb-8 leading-relaxed">Jangan buang waktu config sendiri. Serahkan ke kami, server Minecraft kamu langsung siap dimainkan bareng temen-temen!</p>
+        <a href="https://wa.me/6283119678265?text=Halo%20kak%2C%20mau%20order%20jasa%20setup%20server%20Minecraft"
+           class="btn-mc px-10 py-4 rounded-xl text-lg font-bold inline-flex items-center gap-3 glow-blue">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Pesan Sekarang via WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="border-t border-cyan-500/10 py-12 px-4 bg-[#050711]">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-2 group">
+          <div class="w-8 h-8 bg-gradient-to-br from-[#00F0FF] to-[#0077FE] rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(0,240,255,0.4)]">
+            <span class="text-[#050813] font-poppins font-extrabold text-sm">FS</span>
+          </div>
+          <span class="font-poppins font-bold text-lg text-white tracking-tight">FIM <span class="text-neon-gradient">SATURN</span></span>
+        </div>
+        <div class="flex items-center gap-6 text-sm text-slate-400">
+          <a href="#paket" class="hover:text-[#00F0FF] transition-colors">Paket</a>
+          <a href="#kenapa" class="hover:text-[#00F0FF] transition-colors">Keunggulan</a>
+          <a href="#order" class="hover:text-[#00F0FF] transition-colors">Cara Order</a>
+          <a href="#faq" class="hover:text-[#00F0FF] transition-colors">FAQ</a>
+        </div>
+      </div>
+      <div class="border-t border-white/5 mt-8 pt-8 text-center">
+        <p class="text-slate-500 text-sm">© 2026 <span class="text-slate-300 font-medium">Fim Saturn</span> — All rights reserved. Made with 💙 for Minecraft Community.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== WHATSAPP FLOATING BUTTON ==================== -->
+  <a href="https://wa.me/6283119678265?text=Halo%20kak%2C%20mau%20tanya%20tentang%20jasa%20setup%20server"
+     target="_blank"
+     class="wa-float w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/30 hover:scale-110 transition-transform">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 md:w-8 md:h-8" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
